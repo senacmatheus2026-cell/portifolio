@@ -1,0 +1,811 @@
+/* ==========================================================================
+   VARIAVEIS CSS E CONFIGURAÇÕES DE TEMAS (DARK / LIGHT MODE)
+   ========================================================================== */
+:root {
+    /* Paleta Padrão - Dark Mode (Tema Escuro Inicial) */
+    --cor-fundo-principal: #0f172a;
+    --cor-fundo-card: #1e293b;
+    --cor-fundo-card-hover: #334155;
+    --cor-texto-principal: #f8fafc;
+    --cor-texto-secundario: #94a3b8;
+    --cor-primaria: #00f2fe;
+    --cor-secundaria: #4facfe;
+    --cor-borda: #334155;
+    --sombra-card: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    
+    /* Fontes e Transições */
+    --fonte-principal: 'Poppins', sans-serif;
+    --transicao-suave: all 0.3s ease-in-out;
+}
+
+[data-tema="claro"] {
+    /* Paleta Light Mode (Tema Claro) */
+    --cor-fundo-principal: #f8fafc;
+    --cor-fundo-card: #ffffff;
+    --cor-fundo-card-hover: #f1f5f9;
+    --cor-texto-principal: #0f172a;
+    --cor-texto-secundario: #64748b;
+    --cor-primaria: #0284c7;
+    --cor-secundaria: #2563eb;
+    --cor-borda: #e2e8f0;
+    --sombra-card: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* ==========================================================================
+   ESTILOS GERAIS E RESET
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-fundo-principal);
+    color: var(--cor-texto-principal);
+    transition: var(--transicao-suave);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Personalização da Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--cor-fundo-principal);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--cor-fundo-card-hover);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cor-primaria);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Títulos das Seções */
+.titulo-secao {
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.8rem;
+}
+
+.titulo-secao .destaque {
+    color: var(--cor-primaria);
+}
+
+.subtitulo-secao {
+    text-align: center;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==========================================================================
+   CABEÇALHO E NAVEGAÇÃO
+   ========================================================================== */
+.cabecalho {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--cor-borda);
+    transition: var(--transicao-suave);
+}
+
+[data-tema="claro"] .cabecalho {
+    background-color: rgba(248, 250, 252, 0.85);
+}
+
+.conteudo-navegacao {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logotipo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--cor-texto-principal);
+}
+
+.logotipo span {
+    color: var(--cor-primaria);
+}
+
+.lista-navegacao {
+    display: flex;
+    gap: 2rem;
+}
+
+.link-menu {
+    font-weight: 500;
+    color: var(--cor-texto-secundario);
+    transition: var(--transicao-suave);
+}
+
+.link-menu:hover {
+    color: var(--cor-primaria);
+}
+
+.acoes-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.botao-tema, .botao-menu-mobile {
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-principal);
+    font-size: 1.2rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transicao-suave);
+}
+
+.botao-tema:hover {
+    color: var(--cor-primaria);
+    transform: rotate(15deg);
+}
+
+.botao-menu-mobile {
+    display: none;
+}
+
+/* ==========================================================================
+   SEÇÃO HERO (PRINCIPAL)
+   ========================================================================== */
+.secao-hero {
+    min-height: 100vh;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-hero {
+    max-width: 900px;
+    text-align: center;
+    padding: 0 1.5rem;
+}
+
+.badge-boas-vindas {
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    background: rgba(0, 242, 254, 0.1);
+    color: var(--cor-primaria);
+    border: 1px solid var(--cor-primaria);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.titulo-principal {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.destaque-nome {
+    background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitulo-maquina {
+    font-size: 1.5rem;
+    color: var(--cor-texto-secundario);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    min-height: 2.2rem;
+}
+
+.cursor-pisca {
+    color: var(--cor-primaria);
+    animation: piscar 0.8s infinite;
+}
+
+@keyframes piscar {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.descricao-hero {
+    font-size: 1.1rem;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 2.5rem;
+}
+
+.botoes-hero {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.botao-principal, .botao-secundario {
+    padding: 0.8rem 1.8rem;
+    border-radius: 10px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: var(--transicao-suave);
+}
+
+.botao-principal {
+    background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+    color: #0f172a;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+}
+
+.botao-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 242, 254, 0.5);
+}
+
+.botao-secundario {
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-principal);
+}
+
+.botao-secundario:hover {
+    background: var(--cor-fundo-card-hover);
+    transform: translateY(-3px);
+}
+
+/* ==========================================================================
+   SEÇÃO SOBRE & FORMAÇÃO (ROADMAP)
+   ========================================================================== */
+.secao-sobre, .secao-habilidades, .secao-projetos, .secao-estudos, .secao-contato {
+    padding: 6rem 0;
+}
+
+.grade-sobre {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.card-padrao {
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: var(--sombra-card);
+}
+
+.icone-card {
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 242, 254, 0.1);
+    color: var(--cor-primaria);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-sobre p {
+    color: var(--cor-texto-secundario);
+    margin-bottom: 1.2rem;
+}
+
+/* Timeline/Roadmap */
+.cabecalho-formacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.selo-excelencia {
+    font-size: 0.85rem;
+    background: rgba(0, 242, 254, 0.15);
+    color: var(--cor-primaria);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.previsao-formacao {
+    color: var(--cor-texto-secundario);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.subtitulo-trilha {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    border-bottom: 1px solid var(--cor-borda);
+    padding-bottom: 0.5rem;
+}
+
+.linha-tempo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.item-linha-tempo {
+    display: flex;
+    gap: 1.2rem;
+    position: relative;
+}
+
+.marcador-linha-tempo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--cor-fundo-card-hover);
+    border: 2px solid var(--cor-borda);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--cor-texto-secundario);
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+.item-linha-tempo.concluido .marcador-linha-tempo {
+    background: var(--cor-primaria);
+    color: #0f172a;
+    border-color: var(--cor-primaria);
+}
+
+.badge-status {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.badge-status.em-andamento {
+    background: rgba(0, 242, 254, 0.2);
+    color: var(--cor-primaria);
+}
+
+.badge-status.futuro {
+    background: var(--cor-fundo-card-hover);
+    color: var(--cor-texto-secundario);
+}
+
+.conteudo-linha-tempo h5 {
+    font-size: 1rem;
+    margin: 0.3rem 0 0.2rem 0;
+}
+
+.conteudo-linha-tempo p {
+    font-size: 0.85rem;
+    color: var(--cor-texto-secundario);
+}
+
+/* ==========================================================================
+   SEÇÃO HABILIDADES (HARD SKILLS)
+   ========================================================================== */
+.grade-habilidades {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.card-habilidade {
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 14px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: var(--transicao-suave);
+}
+
+.card-habilidade:hover {
+    transform: translateY(-5px);
+    border-color: var(--cor-primaria);
+    box-shadow: var(--sombra-card);
+}
+
+.icone-habilidade {
+    font-size: 2.8rem;
+    color: var(--cor-primaria);
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.card-habilidade h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.card-habilidade p {
+    font-size: 0.85rem;
+    color: var(--cor-texto-secundario);
+}
+
+/* ==========================================================================
+   SEÇÃO PROJETOS DE DESTAQUE
+   ========================================================================== */
+.grade-projetos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.card-projeto {
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: var(--transicao-suave);
+    box-shadow: var(--sombra-card);
+    display: flex;
+    flex-direction: column;
+}
+
+.card-projeto:hover {
+    transform: translateY(-8px);
+    border-color: var(--cor-primaria);
+}
+
+.imagem-projeto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.conteudo-projeto {
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.conteudo-projeto h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.8rem;
+}
+
+.conteudo-projeto p {
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.tags-tecnologias {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.tags-tecnologias span {
+    font-size: 0.75rem;
+    background: var(--cor-fundo-card-hover);
+    color: var(--cor-primaria);
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.botoes-projeto {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.botao-card {
+    flex: 1;
+    padding: 0.6rem;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: var(--transicao-suave);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+}
+
+.botao-card.primario {
+    background: var(--cor-primaria);
+    color: #0f172a;
+}
+
+.botao-card.secundario {
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-principal);
+}
+
+.botao-card:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+   SUBSEÇÃO REPOSITÓRIOS DE ESTUDO
+   ========================================================================== */
+.secao-estudos {
+    background: rgba(30, 41, 59, 0.3);
+}
+
+[data-tema="claro"] .secao-estudos {
+    background: rgba(241, 245, 249, 0.5);
+}
+
+.grade-estudos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 800px;
+    margin: 2rem auto 0 auto;
+}
+
+.card-estudo {
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    padding: 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: var(--transicao-suave);
+}
+
+.card-estudo:hover {
+    transform: translateX(8px);
+    border-color: var(--cor-primaria);
+}
+
+.icone-estudo {
+    font-size: 1.8rem;
+    color: var(--cor-primaria);
+}
+
+.info-estudo {
+    flex-grow: 1;
+}
+
+.info-estudo h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.info-estudo p {
+    font-size: 0.85rem;
+    color: var(--cor-texto-secundario);
+}
+
+.seta-estudo {
+    font-size: 1.5rem;
+    color: var(--cor-texto-secundario);
+    transition: var(--transicao-suave);
+}
+
+.card-estudo:hover .seta-estudo {
+    color: var(--cor-primaria);
+    transform: translateX(5px);
+}
+
+/* ==========================================================================
+   SEÇÃO CONTATO (CARDS MODERNOS DE REDES SOCIAIS)
+   ========================================================================== */
+.grade-contatos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.card-contato {
+    background: var(--cor-fundo-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    transition: var(--transicao-suave);
+}
+
+.icone-contato {
+    font-size: 2.5rem;
+    transition: var(--transicao-suave);
+}
+
+.info-contato {
+    display: flex;
+    flex-direction: column;
+}
+
+.nome-rede {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.valor-rede {
+    font-size: 0.8rem;
+    color: var(--cor-texto-secundario);
+}
+
+/* Efeitos Específicos de Hover para Cada Rede Social */
+.card-contato.email:hover {
+    border-color: #ea4335;
+    transform: translateY(-5px);
+}
+.card-contato.email:hover .icone-contato { color: #ea4335; }
+
+.card-contato.linkedin:hover {
+    border-color: #0a66c2;
+    transform: translateY(-5px);
+}
+.card-contato.linkedin:hover .icone-contato { color: #0a66c2; }
+
+.card-contato.github:hover {
+    border-color: #a855f7;
+    transform: translateY(-5px);
+}
+.card-contato.github:hover .icone-contato { color: #a855f7; }
+
+.card-contato.whatsapp:hover {
+    border-color: #25d366;
+    transform: translateY(-5px);
+}
+.card-contato.whatsapp:hover .icone-contato { color: #25d366; }
+
+/* ==========================================================================
+   RODAPÉ E BOTÃO VOLTAR AO TOPO
+   ========================================================================== */
+.rodape {
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--cor-borda);
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--cor-texto-secundario);
+}
+
+.icone-coracao {
+    color: #ef4444;
+}
+
+.botao-topo {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 45px;
+    height: 45px;
+    background: var(--cor-primaria);
+    color: #0f172a;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transicao-suave);
+    z-index: 999;
+}
+
+.botao-topo.visivel {
+    opacity: 1;
+    visibility: visible;
+}
+
+.botao-topo:hover {
+    transform: translateY(-5px);
+}
+
+/* ==========================================================================
+   ANIMAÇÃO DE REVELAÇÃO AO ROLAR (SCROLL REVEAL)
+   ========================================================================== */
+.elemento-revelar {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.elemento-revelar.ativo {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (MOBILE FIRST & MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .grade-sobre, .grade-projetos {
+        grid-template-columns: 1fr;
+    }
+    .grade-habilidades {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grade-contatos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .botao-menu-mobile {
+        display: block;
+    }
+
+    .menu-navegacao {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--cor-fundo-principal);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: var(--transicao-suave);
+    }
+
+    .menu-navegacao.ativo {
+        left: 0;
+    }
+
+    .lista-navegacao {
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+    }
+
+    .link-menu {
+        font-size: 1.3rem;
+    }
+
+    .titulo-principal {
+        font-size: 2.2rem;
+    }
+
+    .grade-habilidades, .grade-contatos {
+        grid-template-columns: 1fr;
+    }
+}
